@@ -15,5 +15,5 @@ using MaxMind.GeoIP2;
 
 using var reader = new DatabaseReader("./GeoLite2-Country.mmdb");
 Console.WriteLine(reader.TryCountry("24.24.24.24", out var countryResponse)
-    ? countryResponse!.Country.Name //United States
+    ? $"{countryResponse!.Country.Name}:{countryResponse!.Country.IsoCode}" //United States:US
     : "country not found");
